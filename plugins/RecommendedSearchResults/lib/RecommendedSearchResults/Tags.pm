@@ -13,7 +13,16 @@ sub tag_block_recommended_search_results {
     my $stash_key           = $ctx->stash('stash_key') || 'entry';
     my ( $this_object, $next_object );
 
-    my @arguments        = $app->search_terms();
+    my @arguments = $app->search_terms();
+    # @arguments[0] is the search terms,
+    # @arguments[1] is the search arguments.
+
+    # Ignore the limit imposed on this search to find all recommended results.
+    # That is, if search results are paginated, ignore the pagination to show
+    # all recommended results.
+    delete( @arguments[1]->{'limit'} );
+    delete( @arguments[1]->{'offset'} );
+
     my ( $count, $iter ) = $app->execute(@arguments);
     # If there are no search results, just give up.
     return '' unless $count && $iter;
