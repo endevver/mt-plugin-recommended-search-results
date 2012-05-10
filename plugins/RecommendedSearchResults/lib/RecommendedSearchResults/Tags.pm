@@ -31,7 +31,7 @@ sub tag_block_recommended_search_results {
         or return '';
 
     # Create an array with only the objects that have the supplied tag
-    # associated.
+    # associated. That is, create an array of only the recommended objects.
     my @objects;
     while ($this_object = $iter->() ) {
         # If the object *is* associated with the selected tag, then save it.
@@ -49,10 +49,6 @@ sub tag_block_recommended_search_results {
     my $builder = $ctx->stash('builder');
     my $tokens  = $ctx->stash('tokens');
     my $output  = '';
-
-    my $blog_header = 1;
-    my $blog_footer = 0;
-    my $max_reached = 0;
 
     my $i = 0;
 
