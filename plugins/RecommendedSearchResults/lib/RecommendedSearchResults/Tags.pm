@@ -20,8 +20,8 @@ sub tag_block_recommended_search_results {
     # Ignore the limit imposed on this search to find all recommended results.
     # That is, if search results are paginated, ignore the pagination to show
     # all recommended results.
-    delete( @arguments[1]->{'limit'} );
-    delete( @arguments[1]->{'offset'} );
+    delete( $arguments[1]->{'limit'} );
+    delete( $arguments[1]->{'offset'} );
 
     my ( $count, $iter ) = $app->execute(@arguments);
     # If there are no search results, just give up.
