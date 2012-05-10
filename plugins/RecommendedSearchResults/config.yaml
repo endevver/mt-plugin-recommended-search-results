@@ -2,7 +2,7 @@ name: 'Recommended Search Results'
 id: recommendedsearchresults
 key: recommendedsearchresults
 description: 'Provides the ability to highlight recommended Entries and Pages in search results.'
-version: 1.0.0
+version: 1.0.1
 author_name: 'Endevver'
 author_link: http://endevver.com
 
